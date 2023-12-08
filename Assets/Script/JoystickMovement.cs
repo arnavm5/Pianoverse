@@ -54,3 +54,5 @@ public class JoystickMovement : MonoBehaviour
         cameraRig.position += worldMovementDirection * speed * Time.deltaTime;
     }
 }
+
+
