@@ -8,11 +8,22 @@ using NativeWebSocket;
 public class Connection : MonoBehaviour
 {
   public WebSocket websocket;
+  private string _toSend = "quack";
+  public string toSend {
+      get
+      {
+          return _toSend;
+      }
+      set
+      {
+          _toSend = value;
+      }
+    }
 
   // Start is called before the first frame update
   async void Start()
   {
-    websocket = new WebSocket("ws://192.168.137.1:3000");
+    websocket = new WebSocket("ws://192.168.137.72:81");
 
     websocket.OnOpen += () =>
     {
@@ -67,7 +78,7 @@ public class Connection : MonoBehaviour
       // await websocket.Send(new byte[] { 10, 20, 30 });
 
       // Sending plain text
-      await websocket.SendText("pressed");
+      await websocket.SendText(toSend);
       Debug.Log(websocket.State);
       // await websocket.SendText(toSend);
     }

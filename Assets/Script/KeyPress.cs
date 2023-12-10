@@ -16,7 +16,10 @@ public class KeyPress : MonoBehaviour
     AudioSource sound;
     bool isPressed;
     Quaternion originalRotation;
+
+    // Networking Stuff
     Connection myWebSocket;
+    // string mystring = myWebSocket.toSend;
     
     // GameObject go = GameObject.Find ("Controlaaaaa");
     // Connection connection = go.GetComponent <Connection> ();
@@ -29,11 +32,14 @@ public class KeyPress : MonoBehaviour
         sound = GetComponent<AudioSource>();
         isPressed = false;
         originalRotation = button.transform.rotation;
-        // myWebSocket = GameObject.FindGameObjectWithTag("connectionController").GetComponent<Connection>();
-        // myWebSocket.SendWebSocketMessage();
+        // Debug.Log(mystring);
+        Debug.Log("hello");
+        myWebSocket = GameObject.FindGameObjectWithTag("connectionController").GetComponent<Connection>();
+        Debug.Log(myWebSocket.toSend);
+        // myWebSocket.toSend = "1";
     }
 
-    private async void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (!isPressed)
         {
@@ -43,7 +49,8 @@ public class KeyPress : MonoBehaviour
             sound.Play();
             isPressed = true;
             string curr_key = this.gameObject.name;
-            // InvokeRepeating("SendWebSocketMessage2", 0.0f, 2.0f);
+            myWebSocket.toSend = curr_key;
+            Invoke("SendWebSocketMessage2", 0.00f);
             // myWebSocket.SendWebSocketMessage("pressed: " + curr_key);
             // await websocket.SendText("pressed: " + curr_key);
             
@@ -63,6 +70,7 @@ public class KeyPress : MonoBehaviour
     private async void SendWebSocketMessage2() {
         myWebSocket.SendWebSocketMessage();
     }
+
     // public void OpenConnection()
 	// {
 	// 	if (sp != null)
