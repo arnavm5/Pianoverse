@@ -19,9 +19,11 @@ namespace Sngty
         // Start is called before the first frame update
         void Start()
         {
+            Debug.Log("They say quack");
             BluetoothManager = new AndroidJavaClass("com.harrysoft.androidbluetoothserial.BluetoothManager");
             bluetoothManager = BluetoothManager.CallStatic<AndroidJavaObject>("getInstance");
-
+            Debug.Log(bluetoothManager);
+            Debug.Log(BluetoothManager.CallStatic<AndroidJavaObject>("getInstance"));
             connectedDevices = new List<AndroidJavaObject>();
         }
 
