@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class KeyPress : MonoBehaviour
+public class KeyPressStart : MonoBehaviour
 {
     public GameObject button;
     public UnityEvent onPress;
@@ -12,29 +12,12 @@ public class KeyPress : MonoBehaviour
     AudioSource sound;
     bool isPressed;
     Quaternion originalRotation;
-    NoteSequence noteSequence;
-    private string expectedNoteName;
 
     void Start()
     {
         sound = GetComponent<AudioSource>();
         isPressed = false;
         originalRotation = button.transform.rotation;
-        noteSequence = GameObject.FindGameObjectWithTag("Note").GetComponent<NoteSequence>();
-    }
-
-    void Update() {
-        expectedNoteName = noteSequence.GetExpectedNoteName();
-        HighlightNote();
-    }
-
-    public void HighlightNote() {
-        if (gameObject.name == expectedNoteName) {
-            button.GetComponent<Renderer>().material.color = Color.yellow;
-        }
-        else {
-            button.GetComponent<Renderer>().material.color = Color.white;
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -46,11 +29,6 @@ public class KeyPress : MonoBehaviour
             onPress.Invoke();
             sound.Play();
             isPressed = true;
-            button.GetComponent<Renderer>().material.color = Color.green;
-
-            if (gameObject.name != expectedNoteName) {
-                button.GetComponent<Renderer>().material.color = Color.red;
-            }
         }
     }
 
@@ -63,7 +41,5 @@ public class KeyPress : MonoBehaviour
             onRelease.Invoke();
             isPressed = false;
         }
-
-        button.GetComponent<Renderer>().material.color = Color.white;
     }
 }

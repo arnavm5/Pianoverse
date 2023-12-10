@@ -7,6 +7,7 @@ TagManager:
   - Anchor
   - Hand
   - FlyKey
+  - Note
   layers:
   - Default
   - TransparentFX
