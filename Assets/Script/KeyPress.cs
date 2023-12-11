@@ -27,7 +27,7 @@ public class KeyPress : MonoBehaviour
 
     void Update() {
         // expectedNoteName = noteSequence.GetExpectedNoteName();
-        HighlightNote();
+        // HighlightNote();
     }
 
     public void HighlightNote() {
@@ -62,24 +62,18 @@ public class KeyPress : MonoBehaviour
             button.GetComponent<Renderer>().material.color = Color.green;
             expectedNoteName = noteSequence.currNote;
 
-            // myWebSocket.toSend = this.gameObject.name;
-            // Invoke("SendWebSocketMessage2", 0.00f);
-            // myWebSocket.toSend = expectedNoteName;
-            // Invoke("SendWebSocketMessage2", 0.00f);
-            StartCoroutine(MySendMessage(this.gameObject.name));
-            StartCoroutine(MySendMessage(expectedNoteName));
+            // StartCoroutine(MySendMessage(this.gameObject.name));
+            // StartCoroutine(MySendMessage(expectedNoteName));
 
             if (this.gameObject.name != expectedNoteName) {
                 button.GetComponent<Renderer>().material.color = Color.red;
                 // string curr_key = this.gameObject.name;
                 StartCoroutine(MySendMessage("wrong"));
-                // myWebSocket.toSend = "wrong";
-                // Invoke("SendWebSocketMessage2", 0.00f);
             }
+
             if (this.gameObject.name == expectedNoteName){
                 noteSequence.sentinel = true;
-                myWebSocket.toSend = "right";
-                Invoke("SendWebSocketMessage2", 0.00f);
+                StartCoroutine(MySendMessage("right"));
             }
         }
 

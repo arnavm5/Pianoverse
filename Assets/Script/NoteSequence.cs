@@ -20,7 +20,7 @@ public class NoteSequence : MonoBehaviour
         Debug.Log(myWebSocket);
         sentinel=false;
         // Invoke("SendWebSocketMessage2", 0.00f);
-        // StartCoroutine(MySendMessage("The note sequence"));
+        StartCoroutine(MySendMessage("The note sequence"));
         StartCoroutine(Countdown(3));
     }
 
@@ -64,6 +64,7 @@ public class NoteSequence : MonoBehaviour
             // yield return new WaitUntil(() => sentinel == true);
             currentNoteIndex++;
         }
+        StartCoroutine(MySendMessage("stop1"));
         yield return new WaitForSeconds(5);
         ChangeScene();
     }
@@ -73,8 +74,9 @@ public class NoteSequence : MonoBehaviour
             string curr_key = notes[currentNoteIndex].name;
             Debug.Log(curr_key);
             myWebSocket.toSend = curr_key;
-            Invoke("SendWebSocketMessage2", 0.00f);
+            // Invoke("SendWebSocketMessage2", 0.00f);
             currNote = notes[currentNoteIndex].name;
+            StartCoroutine(MySendMessage(currNote));
             return notes[currentNoteIndex].name;
             
         }

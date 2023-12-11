@@ -23,7 +23,7 @@ public class Connection : MonoBehaviour
   // Start is called before the first frame update
   async void Start()
   {
-    websocket = new WebSocket("ws://192.168.137.117:81");
+    websocket = new WebSocket("ws://192.168.137.58:81");
 
     websocket.OnOpen += () =>
     {
@@ -59,7 +59,7 @@ public class Connection : MonoBehaviour
     // }
     // await websocket.SendText("pressed1");
     // SendWebSocketMessage();
-    Invoke("SendWebSocketMessage", 2.0f);
+    // Invoke("SendWebSocketMessage", 2.0f);
     await websocket.Connect();
   }
 
