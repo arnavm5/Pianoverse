@@ -9,6 +9,7 @@ Library: /Users/ngocdinh/Documents/GitHub/Pianoverse/Temp/BurstOutput/tempburstl
 --target-framework=NetFramework
 --assembly-defines=Assembly-CSharp;
 --assembly-defines=AssistantCoreSDKRuntime;
+--assembly-defines=endel.nativewebsocket;
 --assembly-defines=Facebook.Wit.Dictation;
 --assembly-defines=Meta.VoiceSDK.Mic.Common;
 --assembly-defines=Meta.VoiceSDK.Mic.Other;
@@ -138,6 +139,7 @@ Library: /Users/ngocdinh/Documents/GitHub/Pianoverse/Temp/BurstOutput/tempburstl
 --float-mode=Fast
 --assembly-defines=Assembly-CSharp;
 --assembly-defines=AssistantCoreSDKRuntime;
+--assembly-defines=endel.nativewebsocket;
 --assembly-defines=Facebook.Wit.Dictation;
 --assembly-defines=Meta.VoiceSDK.Mic.Common;
 --assembly-defines=Meta.VoiceSDK.Mic.Other;

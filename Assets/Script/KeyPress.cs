@@ -27,7 +27,7 @@ public class KeyPress : MonoBehaviour
 
     void Update() {
         // expectedNoteName = noteSequence.GetExpectedNoteName();
-        // HighlightNote();
+        HighlightNote();
     }
 
     public void HighlightNote() {

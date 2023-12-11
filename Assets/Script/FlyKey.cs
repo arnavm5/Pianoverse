@@ -4,28 +4,16 @@ using UnityEngine;
 
 public class FlyKey : MonoBehaviour
 {
-    private float speed = 0.04f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private float speed = 0.025f;
 
     // Update is called once per frame
     void Update()
     {
-        // Click();
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        flyKey();
     }
 
-    // private void OnTriggerEnter (Collider other) {
-    //     GameObject.Destroy(this.gameObject);
-    // }
-
-    // public void Click() {
-    //     if (gameObject.CompareTag("FlyKey")) {
-    //         transform.Translate(Vector3.forward * speed * Time.deltaTime);
-    //     }
-    // }
+    public void flyKey() {
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+    }
 }
+
