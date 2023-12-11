@@ -68,12 +68,12 @@ public class KeyPress : MonoBehaviour
             if (this.gameObject.name != expectedNoteName) {
                 button.GetComponent<Renderer>().material.color = Color.red;
                 // string curr_key = this.gameObject.name;
-                StartCoroutine(MySendMessage("wrong"));
+                // StartCoroutine(MySendMessage("wrong"));
             }
 
             if (this.gameObject.name == expectedNoteName){
                 noteSequence.sentinel = true;
-                StartCoroutine(MySendMessage("right"));
+                // StartCoroutine(MySendMessage("right"));
             }
         }
 

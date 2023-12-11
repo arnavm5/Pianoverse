@@ -23,7 +23,7 @@ public class Connection : MonoBehaviour
   // Start is called before the first frame update
   async void Start()
   {
-    websocket = new WebSocket("ws://192.168.137.58:81");
+    websocket = new WebSocket("ws://192.168.137.66:81");
 
     websocket.OnOpen += () =>
     {
